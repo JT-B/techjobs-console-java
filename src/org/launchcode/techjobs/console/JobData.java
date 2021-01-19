@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+
 /**
  * Created by LaunchCode
  */
@@ -82,6 +83,22 @@ public class JobData {
         }
         if (jobs.isEmpty()) {
             System.out.println("No results match your search.");
+        }
+        return jobs;
+    }
+
+    public static ArrayList<HashMap<String, String>> findByValue(String value) {
+        loadData();
+
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        for (HashMap<String, String> row : allJobs) {
+                String aValue = row.values().toString();
+
+                if (aValue.contains(value)) {
+                    jobs.add(row);
+                }
+
         }
         return jobs;
     }
